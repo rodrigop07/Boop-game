@@ -523,7 +523,7 @@ int** fazBoop(int** tabuleiro, int** placar, int linha, int coluna, int linhas, 
     }
     if(linha - 1 >= 0 && coluna + 1 < colunas){
         if(tabuleiro[linha-1][coluna+1] != 0){
-            if(linha - 2 >= 0 && coluna + 2 <= colunas){
+            if(linha - 2 >= 0 && coluna + 2 < colunas){
                 if(tabuleiro[linha-2][coluna+2] == 0 && gato == 'G'){
                     tabuleiro[linha-2][coluna+2] = tabuleiro[linha-1][coluna+1];
                     tabuleiro[linha-1][coluna+1] = 0;
@@ -565,8 +565,8 @@ int** fazBoop(int** tabuleiro, int** placar, int linha, int coluna, int linhas, 
         if(tabuleiro[linha][coluna-1] != 0){
             if(coluna - 2 >= 0){
                 if(tabuleiro[linha][coluna-2] == 0 && gato == 'G'){
-                    tabuleiro[linha][coluna-2] = tabuleiro[linha][coluna+1];
-                    tabuleiro[linha][coluna-2] = 0;
+                    tabuleiro[linha][coluna-2] = tabuleiro[linha][coluna-1];
+                    tabuleiro[linha][coluna-1] = 0;
                 }
                 if(tabuleiro[linha][coluna-2] == 0 && gato == 'g' && (tabuleiro[linha][coluna-1] == 1 || tabuleiro[linha][coluna-1] == 3)){
                     tabuleiro[linha][coluna-2] = tabuleiro[linha][coluna-1];
@@ -765,53 +765,49 @@ int** fazBoop(int** tabuleiro, int** placar, int linha, int coluna, int linhas, 
 }
 
 void menuInicio(){
-    printf("\t                                                                  ++::                        ..--++ \n");
-    printf("\t                                                                  ::....                    ::..::++ \n");
-    printf("\t                                                                  --....--                ::----::++ \n");
-    printf("\t                                                                   ------::              ::::----::  \n");
-    printf("\t                                                                   --::::++            ..::++++++    \n");
-    printf("\t                                                                   ::++mm          ..  ....--mmMM    \n");
-    printf("\t                                                                   ::++..  ..            ....::MM    \n");
-    printf("\t                                                                   --..  ..      --..--    ....::    \n");
-    printf("\t                                                                         ..  ..--::::    ..          \n");
-    printf("\t                                                                       --  ....--::--..  @@----..    \n");
-    printf("\t                                                                       --..--##--::--##..----....    \n");
-    printf("\t                     ....  ....                                ..      --::----..------::::--....    \n");
-    printf("\t                 ....  ....            ....                    ..    ..----..----::------..----      \n");
-    printf("\t               --..::----::    ..    ....            ..    ::  ----  --::......MMMMmm  --..::        \n");
-    printf("\t              --..--::--::--..........--......            --++::----------..--  --MM++..::..--       \n");
-    printf("\t            ----++----::..--..::--......--::--::..        --::--::----++mm++------++::........       \n");
-    printf("\t          ::::::--------::------..++--------::::--      ..--mm::----++mm++mm++----::::....--         \n");
-    printf("\t        ::++--::--::--::::::--::--------::++mm++::  --------mm::..--::++++++mmMMMM::::++----         \n");
-    printf("\t      --::::--::--::----::++::--::::::::::--::mm--..----::mm++++----::::++::++mmmmmm++++----..       \n");
-    printf("\t      --..++++::++----::++::++++----::::::++++++::----::++MMmm::--::::::::++++++mm++mm::::--..       \n");
-    printf("\t    --::..++++::::::::++mm::::--::++::++::mm++MM++++..::MMmm++++------::::++mmmm++++++mm::--..       \n");
-    printf("\t    ----..::++++++++++mm++::::::::++mmMMmmmm::mm++++--::MMmm++--------::::::mmMMMMmm++++++::..       \n");
-    printf("\t  --------++mm++++mmmm++::mm++mmmm@@MMMMMM++mm++++++::--++++::::++::++::++::..::..::mmmmmm++         \n");
-    printf("\t  ::--::::--  ..::++--::::  ------  ++mm++--++++++mmmmmm++mmmm++mm++::::mm++mm::--..    ::::..       \n");
-    printf("\t  ::::----------..------..--....  ..      ....                  --mm++++::::++----..  ..  ::::--     \n");
-    printf("\t  ++mm++++::++++::++::++++++::--::--::..----........----  ......    ++mm++++++::++--........MM::     \n");
-    printf("\t  MMMM@@MMmm++MM@@mm++++++::++mm++::++::--++mmmm::::++::::..::..--....mmmmmm++++++::::--..::++::     \n");
-    printf("\t  ::MM@@MMMMmm@@mm@@@@MMMMmmmmmmMMmmmmmm++++++mmmmMM++mmmm::::::::----MMmmmmMMmm++mm::----MM++--     \n");
-    printf("\t    MM@@@@@@@@MM##MMMM@@MMMMMMMMMMMMMMMMmmMMMMMM@@MM++mm@@mmMMmm++                                   \n");
-    printf("\t        ..MM@@##@@##@@MMMMMM++::--..                                                                 \n\n");
+    printf("\033[1;34m\t\t\t\t                                                                  ++::                        ..--++ \n");
+    printf("\033[1;34m\t\t\t\t                                                                  ::....                    ::..::++ \n");
+    printf("\033[1;34m\t\t\t\t                                                                  --....--                ::----::++ \n");
+    printf("\033[1;34m\t\t\t\t                                                                   ------::              ::::----::  \n");
+    printf("\033[1;34m\t\t\t\t                                                                   --::::++            ..::++++++    \n");
+    printf("\033[1;34m\t\t\t\t                                                                   ::++mm          ..  ....--mmMM    \n");
+    printf("\033[1;34m\t\t\t\t                                                                   ::++..  ..            ....::MM    \n");
+    printf("\033[1;34m\t\t\t\t                                                                   --..  ..      --..--    ....::    \n");
+    printf("\033[1;34m\t\t\t\t                                                                         ..  ..--::::    ..          \n");
+    printf("\033[1;34m\t\t\t\t                                                                       --  ....--::--..  @@----..    \n");
+    printf("\033[1;34m\t\t\t\t                                                                       --..--##--::--##..----....    \n");
+    printf("\033[1;34m\t\t\t\t                     ....  ....                                ..      --::----..------::::--....    \n");
+    printf("\033[1;34m\t\t\t\t                 ....  ....            ....                    ..    ..----..----::------..----      \n");
+    printf("\033[1;34m\t\t\t\t               --..::----::    ..    ....            ..    ::  ----  --::......MMMMmm  --..::        \n");
+    printf("\033[1;34m\t\t\t\t              --..--::--::--..........--......            --++::----------..--  --MM++..::..--       \n");
+    printf("\033[1;34m\t\t\t\t            ----++----::..--..::--......--::--::..        --::--::----++mm++------++::........       \n");
+    printf("\033[1;34m\t\t\t\t          ::::::--------::------..++--------::::--      ..--mm::----++mm++mm++----::::....--         \n");
+    printf("\033[1;34m\t\t\t\t        ::++--::--::--::::::--::--------::++mm++::  --------mm::..--::++++++mmMMMM::::++----         \n");
+    printf("\033[1;34m\t\t\t\t      --::::--::--::----::++::--::::::::::--::mm--..----::mm++++----::::++::++mmmmmm++++----..       \n");
+    printf("\033[1;34m\t\t\t\t      --..++++::++----::++::++++----::::::++++++::----::++MMmm::--::::::::++++++mm++mm::::--..       \n");
+    printf("\033[1;34m\t\t\t\t    --::..++++::::::::++mm::::--::++::++::mm++MM++++..::MMmm++++------::::++mmmm++++++mm::--..       \n");
+    printf("\033[1;34m\t\t\t\t    ----..::++++++++++mm++::::::::++mmMMmmmm::mm++++--::MMmm++--------::::::mmMMMMmm++++++::..       \n");
+    printf("\033[1;34m\t\t\t\t  --------++mm++++mmmm++::mm++mmmm@@MMMMMM++mm++++++::--++++::::++::++::++::..::..::mmmmmm++         \n");
+    printf("\033[1;34m\t\t\t\t  ::--::::--  ..::++--::::  ------  ++mm++--++++++mmmmmm++mmmm++mm++::::mm++mm::--..    ::::..       \n");
+    printf("\033[1;34m\t\t\t\t  ::::----------..------..--....  ..      ....                  --mm++++::::++----..  ..  ::::--     \n");
+    printf("\033[1;34m\t\t\t\t  ++mm++++::++++::++::++++++::--::--::..----........----  ......    ++mm++++++::++--........MM::     \n");
+    printf("\033[1;34m\t\t\t\t  MMMM@@MMmm++MM@@mm++++++::++mm++::++::--++mmmm::::++::::..::..--....mmmmmm++++++::::--..::++::     \n");
+    printf("\033[1;34m\t\t\t\t  ::MM@@MMMMmm@@mm@@@@MMMMmmmmmmMMmmmmmm++++++mmmmMM++mmmm::::::::----MMmmmmMMmm++mm::----MM++--     \n");
+    printf("\033[1;34m\t\t\t\t    MM@@@@@@@@MM##MMMM@@MMMMMMMMMMMMMMMMmmMMMMMM@@MM++mm@@mmMMmm++                                   \n");
+    printf("\033[1;34m\t\t\t\t        ..MM@@##@@##@@MMMMMM++::--..                                                                 \n\n");
+    printf("\033[0m"); // Resetar cores no final
+    printf("\033[1;33m\t\t\t\t\t/\\\\\\\\\\\\\\_/\\\\\\__/\\\\\\_/\\\\\\\\\\\\\\___\n");
+    printf("\033[1;33m\t\t\t\t\t_\\/\\\\\\/////////\\\\\\_/\\\\\\///\\\\\\__/\\\\\\///\\\\\\\\/\\\\\\/////////\\\\\\_____\n");
+    printf("\033[1;33m\t\t\t\t\t _\\/\\\\\\_\\/\\\\\\_/\\\\\\/\\///\\\\\\/\\\\\\/\\///\\\\\\\\/\\\\\\_\\/\\\\\\___\n");
+    printf("\033[1;33m\t\t\t\t\t  _\\/\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\_/\\\\\\__\\//\\\\\\/\\\\\\__\\//\\\\\\_\\/\\\\\\\\\\\\\\\\\\\\\\\\\\/____\n");
+    printf("\033[1;33m\t\t\t\t\t   _\\/\\\\\\/////////\\\\\\_\\/\\\\\\_\\/\\\\\\_\\/\\\\\\_\\/\\\\\\_\\/\\\\\\/////////______\n");
+    printf("\033[1;33m\t\t\t\t\t    _\\/\\\\\\_\\/\\\\\\_\\//\\\\\\__/\\\\\\\\//\\\\\\__/\\\\\\\\/\\\\\\_____\n");
+    printf("\033[1;33m\t\t\t\t\t     _\\/\\\\\\_\\/\\\\\\\\///\\\\\\/\\\\\\_\\///\\\\\\/\\\\\\__\\/\\\\\\_____\n");
+    printf("\033[1;33m\t\t\t\t\t      _\\/\\\\\\\\\\\\\\\\\\\\\\\\\\/_\\///\\\\\\\\\\/__\\///\\\\\\\\\\/_\\/\\\\\\_____\n");
+    printf("\033[1;33m\t\t\t\t\t       _\\/////////////___\\/////__\\/////_\\///______\n");
+    printf("\033[0m"); // Resetar a cor para o padrão do terminal
 
-    printf("\t           BBBBBBBBBBBBBBBBB        OOOOOOOOO          OOOOOOOOO     PPPPPPPPPPPPPPPPP    \n");
-    printf("\t           B::::::::::::::::B     OO:::::::::OO      OO:::::::::OO   P::::::::::::::::P   \n");
-    printf("\t           B::::::BBBBBB:::::B  OO:::::::::::::OO  OO:::::::::::::OO P::::::PPPPPP:::::P  \n");
-    printf("\t           BB:::::B     B:::::BO:::::::OOO:::::::OO:::::::OOO:::::::OPP:::::P     P:::::P \n");
-    printf("\t             B::::B     B:::::BO::::::O   O::::::OO::::::O   O::::::O  P::::P     P:::::P \n");
-    printf("\t             B::::B     B:::::BO:::::O     O:::::OO:::::O     O:::::O  P::::P     P:::::P \n");
-    printf("\t             B::::BBBBBB:::::B O:::::O     O:::::OO:::::O     O:::::O  P::::PPPPPP:::::P  \n");
-    printf("\t             B:::::::::::::BB  O:::::O     O:::::OO:::::O     O:::::O  P:::::::::::::PP   \n");
-    printf("\t             B::::BBBBBB:::::B O:::::O     O:::::OO:::::O     O:::::O  P::::PPPPPPPPP     \n");
-    printf("\t             B::::B     B:::::BO:::::O     O:::::OO:::::O     O:::::O  P::::P             \n");
-    printf("\t             B::::B     B:::::BO:::::O     O:::::OO:::::O     O:::::O  P::::P             \n");
-    printf("\t             B::::B     B:::::BO::::::O   O::::::OO::::::O   O::::::O  P::::P             \n");
-    printf("\t           BB:::::BBBBBB::::::BO:::::::OOO:::::::OO:::::::OOO:::::::OPP::::::PP           \n");
-    printf("\t           B:::::::::::::::::B  OO:::::::::::::OO  OO:::::::::::::OO P::::::::P           \n");
-    printf("\t           B::::::::::::::::B     OO:::::::::OO      OO:::::::::OO   P::::::::P           \n");
-    printf("\t           BBBBBBBBBBBBBBBBB        OOOOOOOOO          OOOOOOOOO     PPPPPPPPPP           \n");
-    printf("\n\t                                   Seja bem-vindo ao Boop!\n");
+
+                printf("\n\t\t\t\t\t                                   Seja bem-vindo ao Boop!\n");
     system("pause");
 }
